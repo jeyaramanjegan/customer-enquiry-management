@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="enquirysaver_enquiries" resource="default" engine="innodb" comment="Customer Entity">
+        <column xsi:type="int" name="enquiry_id" unsigned="true" nullable="false" identity="true"
+                comment="Enquiry ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="telephone" nullable="true" length="255" comment="Phone Number"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email Address"/>
+        <column xsi:type="text" name="comment" nullable="true" comment="Comment"/>
+        <column xsi:type="varchar" name="status" nullable="true" length="32" comment="Status" default="0"/>
+        <column xsi:type="text" name="admin_comment" nullable="true" comment="Admin Comment"/>
+        <column xsi:type="smallint" name="email_sent" unsigned="true" nullable="true" identity="false"
+                comment="Email Sent"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="enquiry_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ENQUIRY_ENTITY_STORE_ID_STORE_STORE_ID" table="enquirysaver_enquiries"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+        <index referenceId="ENQUIRY_ENTITY_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+        <index referenceId="ENQUIRY_ENTITY_NAME" indexType="btree">
+            <column name="name"/>
+        </index>
+        <constraint xsi:type="unique" referenceId="ENQUIRY_ENTITY_EMAIL_ID">
+            <column name="email"/>
+        </constraint>
+        <index referenceId="ENQUIRY_STATUS" indexType="btree">
+            <column name="status"/>
+        </index>
+        <index referenceId="ENQUIRY_EMAIL_SENT" indexType="btree">
+            <column name="email_sent"/>
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="enquiry_email_email_template" label="Enquiry Form" file="submitted_form.html" type="html" module="Jegan_Enquiry" area="frontend"/>
+    <template id="enquiry_email_email_comment_template" label="Enquiry Comment" file="reply.html" type="html" module="Jegan_Enquiry" area="frontend"/>
+</config>

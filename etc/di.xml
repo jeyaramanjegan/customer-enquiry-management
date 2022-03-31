@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Jegan\Enquiry\Api\EnquiryRepositoryInterface" type="Jegan\Enquiry\Model\EnquiryRepository" />
+    <preference for="Jegan\Enquiry\Api\Data\EnquiryInterface" type="Jegan\Enquiry\Model\Enquiry" />
+    <preference for="Jegan\Enquiry\Model\MailInterface" type="Jegan\Enquiry\Model\Mail" />
+    <preference for="Jegan\Enquiry\Model\ConfigInterface" type="Jegan\Enquiry\Model\Config" />
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="enquiry/email/recipient_email" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="jegan_enquiry_enquiry_listing_data_source" xsi:type="string">Jegan\Enquiry\Model\ResourceModel\Enquiry\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Jegan\Enquiry\Model\ResourceModel\Enquiry\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">enquirysaver_enquiries</argument>
+            <argument name="resourceModel" xsi:type="string">Jegan\Enquiry\Model\ResourceModel\Enquiry</argument>
+        </arguments>
+    </virtualType>
+</config>

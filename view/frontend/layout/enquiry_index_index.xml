@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Customer Enquiry</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Jegan\Enquiry\Block\Form\Register" name="enquiry_form_customer" template="Jegan_Enquiry::form/register.phtml">
+                <container name="form.additional.info" as="form_additional_info"/>
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Jegan\Enquiry\ViewModel\UserDataProvider</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <enquiry>
+            <enquiry>
+                <enabled>1</enabled>
+            </enquiry>
+            <email>
+                <recipient_email>
+                    <![CDATA[hello@example.com]]>
+                </recipient_email>
+                <sender_email_identity>custom2</sender_email_identity>
+                <email_template>enquiry_email_email_template</email_template>
+                <email_comment_template>enquiry_email_email_comment_template</email_comment_template>
+            </email>
+        </enquiry>
+    </default>
+</config>

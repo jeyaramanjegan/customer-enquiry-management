@@ -1,0 +1,27 @@
+{
+    "name": "Jegan/customer-enquiry",
+    "description": "Customer Enquiry",
+    "require": {
+      "php": "~7.2.0||~7.3.0||~7.4.0"
+    },
+    "type": "magento2-module",
+    "keywords": ["magento2"],
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Jegan Jeyaraman",
+          "email": "jeganjeyaraman.yt@gmail.com",
+          "homepage": "https://test.com/",
+          "role": "Technical Support"
+        }
+      ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Customer\\Enquiry\\": ""
+        }
+    }
+}

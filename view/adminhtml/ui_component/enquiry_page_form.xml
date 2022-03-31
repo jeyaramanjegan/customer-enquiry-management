@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">enquiry_page_form.enquiry_page_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Enquiry</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Jegan\Enquiry\Block\Adminhtml\Enquiry\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Jegan\Enquiry\Block\Adminhtml\Enquiry\Edit\SaveButton"/>
+            <button name="delete" class="Jegan\Enquiry\Block\Adminhtml\Enquiry\Edit\DeleteButton"/>
+            <button name="back" class="Jegan\Enquiry\Block\Adminhtml\Enquiry\Edit\BackButton"/>
+        </buttons>
+        <namespace>enquiry_page_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>enquiry_page_form.enquiry_page_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="enquiry_page_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="enquiry/enquiry/save"/>
+        </settings>
+        <dataProvider class="Jegan\Enquiry\Model\Enquiry\DataProvider" name="enquiry_page_form_data_source">
+            <settings>
+                <requestFieldName>enquiry_id</requestFieldName>
+                <primaryFieldName>enquiry_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="enquiry">
+        <settings>
+            <label translate="true">Enquiry Information</label>
+        </settings>
+        <field name="enquiry_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>enquiry_id</dataScope>
+            </settings>
+        </field>
+
+        <field name="store_id" component="Magento_Ui/js/form/element/select" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Store Point</label>
+                <imports>
+                    <link name="value">${ $.provider }:data.customer.store_id</link>
+                </imports>
+                <dataScope>store_id</dataScope>
+                <visible>false</visible>
+            </settings>
+        </field>
+
+        <field name="name" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Customer Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+
+        <field name="telephone" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Contact Number</label>
+                <dataScope>telephone</dataScope>
+            </settings>
+        </field>
+
+        <field name="email" formElement="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-email" xsi:type="boolean">true</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Email</label>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+
+        <field name="comment" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">enquiry</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Customer Comment</label>
+                <dataScope>comment</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

@@ -1,0 +1,48 @@
+<?php
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+/** @var \Jegan\Enquiry\Block\Adminhtml\Enquiry\Comment\Reply $block */
+?>
+<?php if ($_entity = $block->getSubmitUrl()): ?>
+    <div id="comments_block" class="edit-replay-comments">
+        <div class="replay-history-block">
+            <div class="admin__field field-row">
+                <label class="admin__field-label"
+                       for="history_comment"><?= $block->escapeHtml(__('Replay Comment')) ?></label>
+                <div class="admin__field-control">
+                <textarea name="admin_comment"
+                          class="admin__control-textarea"
+                          rows="3"
+                          cols="5"
+                          id="history_comment"></textarea>
+                </div>
+            </div>
+            <div class="admin__field">
+                <div class="replay-history-comments-actions">
+                    <?= $block->getChildHtml('submit_button') ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php $scriptString = <<<script
+require(['prototype'], function(){
+    submitComment = function() {
+		submitAndReloadArea($('comments_block').parentNode, '{$block->escapeJs($block->getSubmitUrl())}');
+	    setTimeout(function(){window.setLocation("{$block->escapeJs($block->getReturnUrl())}")},500);
+    };
+    if ($('submit_comment_button')) {
+        $('submit_comment_button').observe('click', submitComment);
+    }
+});
+script;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
+<?php endif; ?>

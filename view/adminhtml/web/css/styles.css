@@ -1,0 +1,3 @@
+.admin__menu .item-enquiry > a:before {
+    content: '\e633' !important;
+}

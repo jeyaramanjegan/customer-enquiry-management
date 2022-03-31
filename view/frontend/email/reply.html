@@ -1,0 +1,23 @@
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<!--@subject {{trans "Admin Comment"}} @-->
+<!--@vars {
+"var data.comment":"Comment",
+"var data.email":"Sender Email",
+"var data.name":"Sender Name",
+"var data.telephone":"Sender Telephone"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p>{{trans "Hi, Welcome to %store_name." store_name=$store.frontend_name}}</p>
+<p>{{var data.admin_comment}}</p>
+
+{{template config_path="design/email/footer_template"}}

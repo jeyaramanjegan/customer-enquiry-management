@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="enquiry/enquiry/enabled" name="enquiry-us-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Customer Enquiry</argument>
+                    <argument name="path" xsi:type="string">enquiry</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="add-enquiry-header-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Customer Enquiry</argument>
+                    <argument name="path" xsi:type="string">enquiry</argument>
+                    <argument name="id" xsi:type="string">chart-enquiry</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright 2022 © Jegan, Inc. All rights reserved.
+ * @license     See COPYING.txt for license details.
+ * @category    Customer Enquiry
+ * @package     Jegan_Enquiry
+ * @author      jegan <jeganjeyaraman.yt@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Jegan_Enquiry::enquiry" title="JeganS Enquiry" translate="title" module="Jegan_Enquiry" sortOrder="20" dependsOnModule="Jegan_Enquiry" resource="Jegan_Enquiry::enquiry"/>
+        <add id="Jegan_Enquiry::enquiry_configuration" title="Settings" translate="title" module="Jegan_Enquiry" sortOrder="10" parent="Jegan_Enquiry::enquiry" action="adminhtml/system_config/edit/section/enquiry/" resource="Jegan_Enquiry::enquiry_configuration"/>
+        <add id="Jegan_Enquiry::enquiry_manage" title="Customer Enquiry" translate="title" module="Jegan_Enquiry" sortOrder="10" parent="Jegan_Enquiry::enquiry" action="enquiry/enquiry/index/" resource="Jegan_Enquiry::enquiry_manage"/>
+    </menu>
+</config>
