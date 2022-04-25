@@ -17,6 +17,7 @@ Extract the zip file in app > code > Jegan > Enquiry
 Then execute the setup upgrade commands
 
 php bin/magento setup:upgrade
+
 php bin/magento setup:di:compile
 
 ## Composer Installation
@@ -28,6 +29,7 @@ composer require jegan/customer-enquiry-management dev-master
 Then execute the setup upgrade commands
 
 php bin/magento setup:upgrade
+
 php bin/magento setup:di:compile
 
 **Features Included**
@@ -74,6 +76,9 @@ Admin > JEGANS ENQUIRY > Customer Enquiry > Action > Select > Reply
 
 ![image-7](https://user-images.githubusercontent.com/48308523/163394541-d2f3e7f9-b0f6-4aab-a25f-9cf987de51d1.png)
 
+**Admin Email to Customer**
+
+![Email-to-customer](https://user-images.githubusercontent.com/48308523/165077271-53b4ec09-7fb5-4cc0-8169-535896e682a9.png)
 
 
 
