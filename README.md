@@ -8,7 +8,7 @@ This is a Magento 2 Enquiry Management extension for Merchants to be able to hav
 -	Admin Enquiry Management page to manage enquiries
 -	Admin Email configuration for enquiries.
 
-Supported Versions: form Magento 2.2 to Magento 2.4.3-p1
+Supported Versions: form Magento 2.2
 
 ## Manual Installation
 
